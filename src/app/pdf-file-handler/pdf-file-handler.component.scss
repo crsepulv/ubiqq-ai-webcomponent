@@ -93,6 +93,9 @@
         justify-content: center;
         align-items: center;
         gap: 5px;
+        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--radius);
+
 
         @media screen and (max-width: 1000px) {
           width: 100%;
@@ -168,6 +171,7 @@
             margin-bottom: 1rem;
             display: flex;
             flex-grow: 1;
+            border-radius: var(--radius);
 
             @media screen and (max-width: 1000px) {
               width: 100%;
@@ -209,6 +213,7 @@
           font-family: var(--ai-font);
           font-size: var(--fs);
           box-sizing: border-box;
+          border-radius: var(--radius);
 
           &:hover {
             opacity: 0.8;
@@ -250,13 +255,14 @@
             }
 
             .ai-pdf-file-handler_selector {
-              padding: 4px 8px;
+              padding: 6px 8px;
               outline: none;
               border-radius: 0;
               font-family: var(--ai-font);
               font-size: var(--fs);
               color: var(--ai-black);
               box-sizing: border-box;
+              border-radius: var(--radius);
             }
           }
         }
@@ -282,7 +288,7 @@
   }
 
   .ai-pdf-file-handler_input {
-    padding: 4px 8px;
+    padding: 6px 8px;
     outline: none;
     border-radius: 0;
     font-family: var(--ai-font);
@@ -291,6 +297,7 @@
     box-sizing: border-box;
     border: 1px solid var(--ai-black);
     background-color: var(--ai-white);
+    border-radius: var(--radius);
   }
 
 }

@@ -14,13 +14,13 @@
     max-height: 93svh;
 
     &.expanded {
-      width: 200px;
+      width: 250px;
       left: 0;
       opacity: 1;
     }
 
     &.unfold {
-      left: -200px;
+      left: -250px;
       width: 0;
       opacity: 0;
     }
@@ -62,11 +62,13 @@
       transition: opacity 200ms ease-in-out;
       font-family: var(--ai-font);
       display: inline-flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       box-sizing: border-box;
       font-weight: 500;
       font-size: var(--fs);
+      border-radius: var(--radius);
+      gap: 10px;
 
       .ai-plus-icon {
         fill: var(--ai-white);
@@ -87,13 +89,14 @@
       cursor: pointer;
       background-color: transparent;
       border: none;
-      transition: background, border 200ms ease-in-out;
+      transition: background 200ms ease-in-out, border 200ms ease-in-out;
       font-family: var(--ai-font);
       display: inline-flex;
       justify-content: space-between;
       align-items: center;
       box-sizing: border-box;
       font-size: var(--fs);
+      border-radius: var(--radius);
 
       .ai-chat-sidebar_conversation-name {
         display: block;
@@ -114,8 +117,9 @@
         align-items: center;
         pad: 5px;
         border: none;
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
+        border-radius: var(--radius);
         cursor: pointer;
         background-color: transparent;
         transition: background 200ms ease-in-out;

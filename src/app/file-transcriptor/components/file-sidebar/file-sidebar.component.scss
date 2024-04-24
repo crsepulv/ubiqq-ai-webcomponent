@@ -46,6 +46,7 @@
       box-sizing: border-box;
       font-weight: 500;
       font-size: var(--fs);
+      border-radius: var(--radius);
 
       .ai-reload-icon {
         fill: var(--ai-white);
@@ -88,6 +89,8 @@
         display: inline-flex;
         align-items: center;
         justify-content: space-between;
+        border-radius: var(--radius);
+
 
         .ai-file-transcriptor_download-title {
           font-weight: 500;
@@ -110,11 +113,12 @@
           align-items: center;
           pad: 5px;
           border: none;
-          width: 25px;
-          height: 25px;
+          width: 30px;
+          height: 30px;
           cursor: pointer;
           background-color: transparent;
           transition: background 200ms ease-in-out;
+          border-radius: var(--radius);
 
           .ai-download-icon {
             fill: var(--ai-black);
