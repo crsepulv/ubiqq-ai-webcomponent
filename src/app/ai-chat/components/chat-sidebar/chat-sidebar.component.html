@@ -1,0 +1,54 @@
+<div class="ai-chat-sidebar" [ngClass]="isShowSidebar ? 'expanded' : 'unfold'">
+  <button
+    class="ai-chat-sidebar_add-conversation-btn"
+    (click)="EmmitCreateNewConversation()"
+    [ngClass]="{
+      disabled: loader
+    }"
+  >
+    <svg
+      class="ai-plus-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="15"
+      height="15"
+      viewBox="0 0 448 512"
+    >
+      <path
+        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+      /></svg
+    ><span>Nueva Conversacion</span>
+  </button>
+  <a
+    class="ai-chat-sidebar_conversation-link"
+    *ngFor="let entry of iterateObjectArray"
+    (click)="EmmitSelectConversation(entry.key)"
+    [title]="entry.value.name"
+    [ngClass]="{
+      activate: entry.key === currentConversationId,
+      disabled: loader
+    }"
+  >
+    <span class="ai-chat-sidebar_conversation-name">{{
+      entry.value.name
+    }}</span>
+    <button
+      class="ai-chat-sidebar_delete-conversation-btn"
+      (click)="EmmitDeleteConversation(entry.key)"
+      [ngClass]="{
+        disabled: loader
+      }"
+    >
+      <svg
+        class="ai-minus-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 448 512"
+      >
+        <path
+          d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
+        />
+      </svg>
+    </button>
+  </a>
+</div>

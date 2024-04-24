@@ -1,0 +1,227 @@
+<div
+  class="ai-chat_main-container"
+  appDndDetector
+  (dragDetected)="openModalFromService()"
+>
+  <!-- Sidebar -->
+  <app-chat-sidebar
+    class="ai-chat_border-sidebar"
+    [isShowSidebar]="isShowSidebar"
+    [currentConversationId]="currentConversationId"
+    (selectConversation)="selectConversation($event)"
+    (createNewConversation)="createNewConversation()"
+    (deleteConversation)="openDeleteModal($event)"
+    [iterateObjectArray]="iterateObjectKeysAndValues(conversations)"
+    [loader]="isLoading"
+  ></app-chat-sidebar>
+
+  <!-- Chat Content -->
+  <div
+    class="ai-chat_content"
+    [ngClass]="isShowSidebar ? 'collapse' : 'expand'"
+  >
+    <!-- Confirm delete  of conversation modal -->
+    <app-confirmation-modal
+      [showConfirmationModal]="showDeleteModal"
+      (closeModal)="closeDeleteModal()"
+      (deleteElement)="deleteConversation(this.selectDeleteElementId)"
+      headerTitle="¿Estas seguro de eliminar esta conversación?"
+      DoingActionText="Eliminando..."
+      ActionToDoText="Eliminar conversación"
+    ></app-confirmation-modal>
+
+    <button
+      (click)="showSidebar()"
+      class="ai-chat_sidebar-btn"
+      [ngClass]="!showSidebar ? 'invisible' : ''"
+    >
+      <span *ngIf="!isShowSidebar"
+        ><svg
+          class="ai-arrow-icon arrow-left"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 320 512"
+        >
+          <path
+            d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+          />
+        </svg>
+      </span>
+      <span *ngIf="isShowSidebar"
+        ><svg
+          class="ai-arrow-icon arrow-right"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 320 512"
+        >
+          <path
+            d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+          />
+        </svg>
+      </span>
+    </button>
+
+    <button class="ai-chat_scroll-btn" (click)="scrollToBottomSmooth()">
+      <span
+        ><svg
+          class="ai-arrow-down-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="10"
+          height="10"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+          />
+        </svg>
+      </span>
+    </button>
+
+    <!-- Pre-defined promtpts modal btn -->
+    <!--
+      <button class="ai-chat_help-btn" (click)="showHelpModal()">
+      <span
+        ><svg
+          class="ai-i-help-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="15"
+          viewBox="0 0 192 512"
+        >
+          <path
+            d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z"
+          />
+        </svg>
+      </span>
+    </button>
+    -->
+
+    <!-- Pre-defined promtpts modal -->
+    <app-modal
+      headerTitle="Selecciona una pregunta"
+      [showModal]="isShowHelpModal"
+      (closeModal)="closeHelpModal()"
+    >
+      <div class="ai-chat_prompt-list" *ngIf="isShowHelpModal">
+        <div
+          class="ai-chat_prompt-container"
+          *ngFor="let category of userQuestions"
+        >
+          <h3 class="ai-chat_prompt-category">{{ category.category }}</h3>
+          <a
+            class="ai-chat_prompt"
+            *ngFor="let prompt of category.questions"
+            (click)="usePrompt(prompt)"
+          >
+            {{ prompt }}
+          </a>
+        </div>
+      </div>
+    </app-modal>
+
+    <!-- Chat interface -->
+    <section class="ai-chat_conversation-container" #conversationContainer>
+      <div class="ai-chat_messages-container" *ngIf="notEmptyConversation()">
+        <div
+          class="ai-chat_message"
+          *ngFor="let message of conversations[currentConversationId]?.messages"
+          [ngClass]="message.owner === 'user_r' ? 'right' : 'left'"
+        >
+          <span class="ai-chat_message-content">{{ message.text }}</span>
+
+          <div class="ai-chat_message-options">
+            <button
+              class="ai-chat_copy-message-btn"
+              *ngIf="!message.isCopiedSuccess"
+              (click)="copyMessage(message)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z"
+                />
+              </svg>
+            </button>
+            <button
+              class="ai-chat_copy-message-btn"
+              *ngIf="message.isCopiedSuccess"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                />
+              </svg>
+            </button>
+            <span class="ai-chat_message-date">{{
+              message.timestamp | date : "short"
+            }}</span>
+          </div>
+        </div>
+        <div *ngIf="isLoading" class="ai-chat_message left">
+          <app-loader loaderText="Respondiendo"></app-loader>
+        </div>
+      </div>
+      <!-- Welcome View when no messages -->
+      <div class="ai-chat_messages-container" *ngIf="emptyConversation()">
+        <app-welcome-view></app-welcome-view>
+      </div>
+    </section>
+
+    <!-- Chat text box -->
+    <section class="ai-chat_text-box-container">
+      <form
+        [formGroup]="messageForm"
+        (submit)="sendMessage($event)"
+        class="ai-chat_form-message"
+      >
+        <!-- Input for message -->
+        <textarea
+          class="ai-chat_text-area"
+          type="text"
+          placeholder="Escribe un mensaje de maximo 30mil caracteres"
+          id="form-input"
+          autoResize
+          formControlName="message"
+          (keydown)="handleKeyDown($event)"
+        >
+        </textarea>
+
+        <div
+          class="ai-error-alert"
+          *ngIf="messageForm.get('message')?.hasError('maxlength')"
+        >
+          <span class="ai-error-message">
+            El mensaje excede los 30mil caracteres.
+          </span>
+        </div>
+
+        <div class="ai-text-length-alert">
+          <span class="ai-error-message"
+            >{{ messageForm.get("message")?.value.length }}
+          </span>
+        </div>
+
+        <!-- Send message btn -->
+        <button
+          type="submit"
+          class="ai-chat_send-message-btn"
+          [ngClass]="!messageForm.valid || isLoading ? 'disabled' : ''"
+          [disabled]="!messageForm.valid || isLoading"
+        >
+          <svg
+            class="ai-send-mail-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"
+            />
+          </svg>
+        </button>
+      </form>
+    </section>
+  </div>
+</div>

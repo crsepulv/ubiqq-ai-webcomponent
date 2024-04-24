@@ -1,0 +1,29 @@
+:host {
+  .ai-chat-welcome_container {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+
+    .ai-chat-welcome_title {
+      font-size: calc(var(--fs) + 1rem);
+
+      @media screen and (max-width: 1000px) {
+        font-size: calc(var(--fs) + 0.8rem);
+      }
+    }
+
+    .ai-chat-welcome_subtitle {
+      font-size: calc(var(--fs) + 0.2rem);
+    }
+
+    .ai-chat-welcome_text {
+      font-size: var(--fs);
+    }
+  }
+}

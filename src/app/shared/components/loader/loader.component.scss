@@ -1,0 +1,33 @@
+:host {
+  .ai-loader_container {
+    display: inline-flex;
+    align-items: center;
+
+    .ai-loader_loading-text {
+      margin-right: 5px;
+    }
+  }
+
+  .ai-spinner-icon {
+    fill: var(--ai-black);
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .black {
+    fill: var(--ai-black);
+  }
+
+  .white {
+    fill: var(--ai-white);
+  }
+
+  .red {
+    fill: var(--ai-primary);
+  }
+}
