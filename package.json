@@ -11,7 +11,7 @@
     "test": "ng test",
     "predeploy": "git add . && git commit -m fix && git status || true",
     "deploy": "ng build --output-hashing none --configuration production && node concat-script.js || true",
-    "postdeploy": "cp custom-elements/ubiqq-ai-webcomponent.js /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/js/ && cp custom-elements/ubiqq-ai-webcomponent.css /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/css/ && cp dist/ubiqq-ai-webcomponent/*.js /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/js/ && cp dist/ubiqq-ai-webcomponent/*.css /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/css/ && https://github.com/crsepulv/ubiqq-ai-webcomponent.git && synccustomer ubiqq && clearcloudfront /cdn/ubiqq-ai-webcomponent/*"
+    "postdeploy": "cp custom-elements/ubiqq-ai-webcomponent.js /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/js/ && cp custom-elements/ubiqq-ai-webcomponent.css /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/css/ && cp dist/ubiqq-ai-webcomponent/*.js /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/js/ && cp dist/ubiqq-ai-webcomponent/*.css /home/crsepulv/clientes/ubiqq/cdn/ubiqq-ai-webcomponent/css/ && syncAIComponentsJS && synccustomer ubiqq && clearcloudfront /cdn/ubiqq-ai-webcomponent/*"
   },
   "private": true,
   "dependencies": {
