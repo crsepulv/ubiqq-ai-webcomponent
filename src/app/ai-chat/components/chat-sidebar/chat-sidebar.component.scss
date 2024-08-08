@@ -35,7 +35,7 @@
       max-height: none;
       top: 0px;
       padding-top: 8vh;
-      background-color: var(--ai-white);
+      background-color: var(--menu-bg);
 
       &.expanded {
         width: 100%;
@@ -56,26 +56,26 @@
       width: 100%;
       padding: 10px;
       cursor: pointer;
-      color: var(--ai-white);
-      background-color: var(--ai-black);
+      color: var(--secondary-btn-color);
+      background-color: var(--secondary-btn-bg);
       border: none;
       transition: opacity 200ms ease-in-out;
-      font-family: var(--ai-font);
+      font-family: var(--font-family);
       display: inline-flex;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
       font-weight: 500;
-      font-size: var(--fs);
+      font-size: var(--font-size-base);
       border-radius: var(--radius);
       gap: 10px;
 
       .ai-plus-icon {
-        fill: var(--ai-white);
+        fill: var(--secondary-btn-color);
       }
 
       span {
-        font-size: var(--fs);
+        font-size: var(--font-size-base);
       }
 
       &:hover {
@@ -90,13 +90,14 @@
       background-color: transparent;
       border: none;
       transition: background 200ms ease-in-out, border 200ms ease-in-out;
-      font-family: var(--ai-font);
+      font-family: var(--font-family);
       display: inline-flex;
       justify-content: space-between;
       align-items: center;
       box-sizing: border-box;
-      font-size: var(--fs);
+      font-size: var(--font-size-base);
       border-radius: var(--radius);
+      color: var(--state-color);
 
       .ai-chat-sidebar_conversation-name {
         display: block;
@@ -125,39 +126,39 @@
         transition: background 200ms ease-in-out;
 
         .ai-minus-icon {
-          fill: var(--ai-black);
+          fill: var(--secondary-btn-bg);
         }
 
         &:hover {
-          background-color: var(--ai-black);
+          background-color: var(--secondary-btn-bg);
 
           svg {
-            fill: var(--ai-white);
+            fill: var(--secondary-btn-color);
           }
         }
       }
 
       &.activate {
-        background-color: var(--ai-gray-opacity-2);
+        background-color: var(--state-bg);
 
         &:hover {
-          background-color: var(--ai-gray-opacity-2);
+          background-color: var(--state-bg);
         }
 
         .ai-chat-delete-conversation-btn {
           &:hover {
-            background-color: var(--ai-black);
+            background-color: var(--secondary-btn-bg);
 
             svg {
-              fill: var(--ai-white);
+              fill: var(--secondary-btn-color);
             }
           }
         }
       }
 
       &:hover {
-        background-color: var(--ai-gray-opacity-2);
-        border-color: var(--ai-borders);
+        background-color: var(--state-bg);
+        border-color: var(--borders);
       }
     }
   }
@@ -168,7 +169,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--ai-primary);
+    background-color: var(--primary);
   }
 
   ::-webkit-scrollbar-track {

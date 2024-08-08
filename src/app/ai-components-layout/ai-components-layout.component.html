@@ -1,4 +1,4 @@
-<div class="ai-layout_main-container">
+<div class="ai-layout_main-container" [style]="conf?.styles">
   <div class="ai-layout_header">
     <span class="ai-layout_header-title">
       <span class="ai-layout_mobile-title">{{
@@ -45,6 +45,7 @@
       *ngIf="!isShowMobileMenu"
       (click)="openMobileMenu()"
       class="ai-layout_header-mobile-menu-open-btn"
+      [style]=""
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

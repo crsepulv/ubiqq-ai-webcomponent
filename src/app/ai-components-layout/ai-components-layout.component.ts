@@ -8,16 +8,38 @@ import {
 } from '@angular/core';
 import { AiChatComponent } from '../ai-chat/ai-chat.component';
 import { ComponentToShow } from './types';
+import { ConfService } from '../conf/conf.service';
+
+type Styles = {
+  main: any;
+  header: any;
+};
 
 @Component({
   selector: 'app-ai-components-layout',
   templateUrl: './ai-components-layout.component.html',
   styleUrls: ['./ai-components-layout.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class AiComponentsLayoutComponent implements OnInit {
   @Input() userid: string = 'userid';
+  @Input() config!: string;
 
+  conf: any;
+
+ 
+
+  private flattenStyles(styles: any): any {
+    const flattenedStyles = {};
+    
+    for (const key in styles) {
+      if (styles.hasOwnProperty(key)) {
+        Object.assign(flattenedStyles, styles[key]);
+      }
+    }
+    
+    return flattenedStyles;
+  }
   isShowSidebar: boolean = true;
 
   componentToShow: ComponentToShow = {
@@ -33,20 +55,31 @@ export class AiComponentsLayoutComponent implements OnInit {
       label: 'Transcriptor de audio y video',
     },
     'ai-pdf-file-handler': {
-      label: "Conversor PDF/Imagen a Texto",
+      label: 'Conversor PDF/Imagen a Texto',
     },
   };
 
   @ViewChild('aiChatComponent') aiChatComponent!: AiChatComponent;
   isShowMobileMenu: boolean = false;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    public confService: ConfService
+  ) {}
 
   iterateObjectKeysAndValues(obj: any): { key: string; value: any }[] {
     return Object.entries({ ...obj }).map(([key, value]) => ({ key, value }));
   }
 
   ngOnInit(): void {
+    if(this.config){
+      const decodedString = atob(this.config); // Decodificar Base64
+    this.conf = JSON.parse(decodedString); // Convertir el string en JSON
+    this.conf.styles = this.flattenStyles(this.conf.styles); // Aplicar la función flattenStyles
+    this.confService.conf.next(this.conf);
+    console.log(this.confService.conf.value);
+    }
+
     const savedShowDefaultComponent = localStorage.getItem('componentToShow');
 
     if (savedShowDefaultComponent !== null) {

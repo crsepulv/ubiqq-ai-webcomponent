@@ -1,0 +1,56 @@
+{
+  "styles": {
+    "theme": {
+      "--container-bg": "#09090b",
+      "--container-color": "#fafafa",
+      "--borders": "#3f3f46",
+      "--primary": "#ef4444",
+      "--radius": "10px",
+      "--box-shadow": "rgba(255,255,255,.3)",
+      "--font-family": "monospace",
+      "--font-size-base": "12px",
+      "--font-normal": 800,
+      "--font-bold": 900
+    },
+    "navbar": {
+      "--header-bg": "#09090b",
+      "--header-color": "#fafafa"
+    },
+    "mobileMenu": {
+      "--menu-bg": "#09090b",
+      "--menu-color": "#fafafa"
+    },
+    "mainButtons": {
+      "--primary-btn-bg": "#ef4444",
+      "--primary-btn-color": "#fafafa"
+    },
+    "secondaryButtons": {
+      "--secondary-btn-bg": "#fafafa",
+      "--secondary-btn-color": "#3f3f46"
+    },
+    "deleteButton": {
+      "--warning-btn-bg": "#eab308",
+      "--warning-btn-color": "#09090b"
+    },
+    "activeAndHoverElements": {
+      "--state-bg": "#171717",
+      "--state-color": "#fafafa"
+    },
+    "chatMessages": {
+      "--user-message-bg": "#0f172a",
+      "--user-message-color": "#f8fafc"
+    },
+
+    "formInputs": {
+      "--input-bg": "#18181b",
+      "--input-color": "#fafafa"
+    }
+  },
+  "welcomeView": {
+    "title": "Welcome to your custom Aritifical Intelligence Chat",
+    "subtitle": "This is the future, Let's go",
+    "description": "This is a super chat to help everyone",
+    "subtitle2": "Contact us for support",
+    "description2": "webdev.michell@gmail.com"
+  }
+}

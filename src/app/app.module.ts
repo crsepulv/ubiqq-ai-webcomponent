@@ -9,6 +9,7 @@ import { AiComponentsLayoutComponent } from './ai-components-layout/ai-component
 import { FileTranscriptorModule } from './file-transcriptor/file-transcriptor.module';
 import { AiChatModule } from './ai-chat/ai-chat.module';
 import { PdfFileHandlerModule } from './pdf-file-handler/pdf-file-handler.module';
+import { ConfService } from './conf/conf.service';
 
 @NgModule({
   declarations: [AiComponentsLayoutComponent],
@@ -22,6 +23,7 @@ import { PdfFileHandlerModule } from './pdf-file-handler/pdf-file-handler.module
     PdfFileHandlerModule,
     FileTranscriptorModule,
   ],
+  providers: [ConfService]
 })
 export class AppModule {
   constructor(private injector: Injector) {

@@ -28,12 +28,12 @@
     }
 
     .ai-chat-file-loader_help-text {
-      font-size: var(--fs);
+      font-size: var(--font-size-base);
       color: var(--ai-black);
     }
 
     .ai-chat-file-loader_label {
-      color: var(--ai-white);
+      color: var(--white);
       width: max-content;
       background-color: var(--ai-black);
       padding: 8px 16px;
@@ -59,12 +59,12 @@
         width: 100%;
 
         .ai-chat-file-loader_name {
-          font-size: var(--fs);
+          font-size: var(--font-size-base);
           color: var(--ai-black);
         }
 
         .ai-chat-file-loader_size {
-          font-size: var(--fs);
+          font-size: var(--font-size-base);
           color: var(--ai-black);
           margin: 0;
           margin-bottom: 0.25rem;
@@ -101,14 +101,14 @@
       justify-content: center;
       align-items: center;
       background: var(--ai-black);
-      color: var(--ai-white);
+      color: var(--white);
       border: none;
       cursor: pointer;
       padding: 10px;
       transition: opacity 200ms ease-in-out;
       font-weight: 500;
-      font-family: var(--ai-font);
-      font-size: var(--fs);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
 
       &:hover {
         opacity: 0.9;
@@ -125,14 +125,14 @@
       justify-content: center;
       align-items: center;
       background: var(--ai-primary);
-      color: var(--ai-white);
+      color: var(--white);
       border: none;
       cursor: pointer;
       padding: 10px;
       transition: opacity 200ms ease-in-out;
       font-weight: 500;
-      font-family: var(--ai-font);
-      font-size: var(--fs);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
 
       &:hover {
         opacity: .9;
@@ -203,9 +203,9 @@
     padding: 20px;
     color: var(--main-white);
     z-index: 100000;
-    font-size: var(--fs);
+    font-size: var(--font-size-base);
     font-weight: 500;
-    color: var(--ai-white);
+    color: var(--white);
 
     @media screen and (max-width: 1000px) {
       width: 100%;
@@ -225,7 +225,7 @@
     border: none;
 
     .icon {
-      color: var(--ai-white);
+      color: var(--white);
     }
   }
 }

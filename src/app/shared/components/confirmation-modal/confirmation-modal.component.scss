@@ -10,8 +10,9 @@
     height: max-content;
     z-index: 1200;
     margin: auto;
-    background-color: var(--ai-white);
+    background-color: var(--container-bg);
     border-radius: var(--radius);
+    border: 1px solid var(--borders);
 
     &.ai-open-modal {
       display: flex;
@@ -28,10 +29,10 @@
       overflow: hidden;
       height: 20px;
       padding: 20px 10px;
-      border-bottom: 1px solid var(--ai-borders);
+      border-bottom: 1px solid var(--borders);
 
       .ai-confirmation-modal_header-title {
-        color: var(--ai-black);
+        color: var(--container-color);
         font-weight: 500;
         max-width: 200px;
       }
@@ -40,12 +41,12 @@
         padding: 5px;
         border: none;
         background-color: transparent;
-        color: var(--ai-black);
+        color: var(--container-color);
         cursor: pointer;
         border-radius: var(--radius);
 
         &:hover {
-          background-color: var(--ai-gray-opacity-2);
+          background-color: var(--state-bg);
         }
       }
     }
@@ -61,11 +62,12 @@
       .ai-confirmation-modal_action-btn {
         padding: 10px;
         cursor: pointer;
-        color: var(--ai-white);
-        background-color: var(--ai-black);
+
+        background: var(--warning-btn-bg);
+        color: var(--warning-btn-color);
         border: none;
         transition: opacity 200ms ease-in-out;
-        font-family: var(--fs);
+        font-family: var(--font-size-base);
         display: inline-flex;
         justify-content: space-between;
         align-items: center;
@@ -76,11 +78,11 @@
         svg {
           width: 15px;
           height: 15px;
-          fill: var(--ai-white);
+          fill: var(--secondary-btn-color);
         }
 
         span {
-          font-size: var(--fs);
+          font-size: var(--font-size-base);
         }
 
         &:hover {
@@ -92,19 +94,19 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        background: var(--ai-red);
-        color: var(--ai-white);
+        color: var(--secondary-btn-color);
+        background-color: var(--secondary-btn-bg);
         border: none;
         cursor: pointer;
         padding: 10px;
         transition: opacity 200ms ease-in-out;
         font-weight: 500;
-        font-family: var(--ai-font);
-        font-size: var(--fs);
+        font-family: var(--font-family);
+        font-size: var(--font-size-base);
         border-radius: var(--radius);
 
         &:hover {
-          opacity: .9;
+          opacity: 0.9;
         }
 
         &.active {

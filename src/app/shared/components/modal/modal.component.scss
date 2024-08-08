@@ -14,7 +14,7 @@
     max-width: 800px;
     z-index: 1000;
     margin: auto;
-    background-color: var(--ai-white);
+    background-color: var(--white);
     border: none;
     position: absolute;
 
@@ -41,7 +41,7 @@
       overflow: hidden;
       height: 20px;
       padding: 20px 10px;
-      border-bottom: 1px solid var(--ai-borders);
+      border-bottom: 1px solid var(--borders);
 
       .ai-modal_header-title {
         font-weight: 500;
