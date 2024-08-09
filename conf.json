@@ -52,5 +52,10 @@
     "description": "This is a super chat to help everyone",
     "subtitle2": "Contact us for support",
     "description2": "webdev.michell@gmail.com"
+  },
+  "navbar": {
+    "chat": "AI Chat",
+    "transcriptor": "Audio and Video Transcriptor",
+    "pdf-conversor": "PDF to text"
   }
 }

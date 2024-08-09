@@ -27,17 +27,15 @@ export class AiComponentsLayoutComponent implements OnInit {
 
   conf: any;
 
- 
-
   private flattenStyles(styles: any): any {
     const flattenedStyles = {};
-    
+
     for (const key in styles) {
       if (styles.hasOwnProperty(key)) {
         Object.assign(flattenedStyles, styles[key]);
       }
     }
-    
+
     return flattenedStyles;
   }
   isShowSidebar: boolean = true;
@@ -72,12 +70,26 @@ export class AiComponentsLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.config){
+    if (this.config) {
       const decodedString = atob(this.config); // Decodificar Base64
-    this.conf = JSON.parse(decodedString); // Convertir el string en JSON
-    this.conf.styles = this.flattenStyles(this.conf.styles); // Aplicar la función flattenStyles
-    this.confService.conf.next(this.conf);
-    console.log(this.confService.conf.value);
+      this.conf = JSON.parse(decodedString); // Convertir el string en JSON
+      this.conf.styles = this.flattenStyles(this.conf.styles); // Aplicar la función flattenStyles
+      this.confService.conf.next(this.conf);
+      console.log(this.confService.conf.value);
+
+      if(this.conf.navbar){
+        this.modules = {
+          'ai-chat': {
+            label: this.conf.navbar.chat,
+          },
+          'ai-file-transcriptor': {
+            label: this.conf.navbar.transcriptor,
+          },
+          'ai-pdf-file-handler': {
+            label: this.conf.navbar['pdf-conversor'],
+          },
+        };
+      }
     }
 
     const savedShowDefaultComponent = localStorage.getItem('componentToShow');
