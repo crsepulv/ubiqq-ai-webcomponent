@@ -41,7 +41,7 @@
       overflow: hidden;
       height: 20px;
       padding: 20px 10px;
-      border-bottom: 1px solid var(--borders);
+      border-bottom: var(--border-width) var(--border-style) var(--border-color);
 
       .ai-custom-modal_header-title {
         font-weight: 500;

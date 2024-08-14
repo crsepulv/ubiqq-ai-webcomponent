@@ -12,6 +12,8 @@
     transition: all ease-in-out 400ms;
     overflow-y: scroll;
     max-height: 93svh;
+    background: var(--menu-bg);
+    color: var(--menu-color);
 
     &.expanded {
       width: 250px;
@@ -35,7 +37,6 @@
       max-height: none;
       top: 0px;
       padding-top: 8vh;
-      background-color: var(--menu-bg);
 
       &.expanded {
         width: 100%;
@@ -126,7 +127,7 @@
         transition: background 200ms ease-in-out;
 
         .ai-minus-icon {
-          fill: var(--secondary-btn-bg);
+          fill: var(--state-color);
         }
 
         &:hover {
@@ -158,7 +159,7 @@
 
       &:hover {
         background-color: var(--state-bg);
-        border-color: var(--borders);
+        border-color: var(--border-color);
       }
     }
   }

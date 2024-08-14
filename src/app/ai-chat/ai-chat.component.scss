@@ -1,6 +1,7 @@
 :host {
   .ai-chat_border-sidebar {
-    border-right: 1px solid var(--borders);
+    border-right: var(--border-width) var(--border-style) var(--border-color);
+    background: var(--menu-bg);
   }
   .ai-error-alert {
     background-color: var(--primary-btn-bg);
@@ -64,7 +65,7 @@
         cursor: pointer;
 
         .ai-arrow-icon {
-          fill: var(--borders);
+          fill: var(--border-color);
 
           &:hover {
             opacity: 0.8;
@@ -167,7 +168,7 @@
           padding: 5px;
           flex-direction: column;
           gap: 4px;
-          border-bottom: 1px solid var(--borders);
+          border-bottom: var(--border-width) var(--border-style) var(--border-color);
 
           .ai-chat_prompt {
             padding: 5px;
@@ -197,7 +198,8 @@
         display: flex;
         justify-content: space-between;
         box-shadow: inset 0px 0px 20px -6px var(--box-shadow);
-        border-bottom: 1px solid var(--borders);
+        border-bottom: var(--border-width) var(--border-style) var(--border-color);
+        background: var(--chat-bg);
 
         .ai-chat_messages-container {
           width: 80%;
@@ -217,7 +219,7 @@
           .ai-chat_message {
             box-sizing: border-box;
             padding: 10px 10px;
-            border: 1px solid;
+            border: var(--border-width) var(--border-style);
             word-wrap: break-word;
             width: max-content;
             height: min-content;
@@ -254,7 +256,7 @@
           .left {
             align-self: flex-start;
             background-color: var(--container-bg);
-            border-color: var(--borders);
+            border-color: var(--border-color);
             color: var(--container-color);
 
             .ai-chat_message-date {
@@ -285,7 +287,7 @@
             align-self: flex-end;
             background: var(--user-message-bg);
             color: var(--user-message-color);
-            border-color: var(--borders);
+            border-color: var(--border-color);
 
             .ai-chat_message-date {
               text-align: right;
@@ -320,6 +322,7 @@
         justify-content: center;
         align-items: center;
         font-weight: 500;
+        background: var(--container-bg);
         color: var(--container-color);
         height: 18vh;
         padding: 10px;
@@ -345,7 +348,7 @@
             font-size: var(--font-size-base);
             width: 100%;
             resize: none;
-            border: 1px solid var(--borders);
+            border: var(--border-width) var(--border-style) var(--border-color);
             transition: all 100ms ease-in;
             outline: none;
             font-weight: 500;
@@ -450,7 +453,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background-color: var(--borders);
-    border-left: 1px solid var(--borders);
+    background-color: var(--border-color);
+    border-left: var(--border-width) var(--border-style) var(--border-color);
   }
 }

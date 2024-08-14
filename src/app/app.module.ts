@@ -22,6 +22,7 @@ import { ConfService } from './conf/conf.service';
     SharedModule,
     PdfFileHandlerModule,
     FileTranscriptorModule,
+    HttpClientModule
   ],
   providers: [ConfService]
 })

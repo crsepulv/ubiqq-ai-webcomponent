@@ -1,6 +1,7 @@
 :host {
   .ai-pdf_border-sidebar {
-    border-right: 1px solid var(--borders);
+    border-right: var(--border-width) var(--border-style) var(--border-color);
+    background: var(--menu-bg);
   }
 
   .ai-pdf-file-handler_main-container {
@@ -55,7 +56,7 @@
         cursor: pointer;
 
         .ai-arrow-icon {
-          fill: var(--borders);
+          fill: var(--border-color);
 
           &:hover {
             opacity: 0.8;
@@ -301,7 +302,7 @@
     font-size: var(--font-size-base);
     color: var(--input-color);
     box-sizing: border-box;
-    border: 1px solid var(--borders);
+    border: var(--border-width) var(--border-style) var(--border-color);
     background-color: var(--input-bg);
     border-radius: var(--radius);
   }

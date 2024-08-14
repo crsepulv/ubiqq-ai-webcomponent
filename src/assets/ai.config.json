@@ -1,0 +1,68 @@
+{
+  "aiConfig": {
+    "css": {
+      "general": {
+        "background": "#020617",
+        "color": "#f8fafc",
+        "primary-color": "orange",
+        "box-shadow": "red",
+        "borders": {
+          "border-width": "1px",
+          "border-color": "#6366f1",
+          "border-style": "solid",
+          "border-radius": "20px"
+        },
+        "font": {
+          "font-size": "16px",
+          "font-family": "Roboto",
+          "font-weight": "normal"
+        },
+        "inputs": {
+          "background": "#000",
+          "color": "#fff"
+        },
+        "primary-buttons": {
+          "background": "orange",
+          "color": "#000"
+        },
+        "secondary-buttons": {
+          "background": "#000",
+          "color": "#fff"
+        },
+        "activeAndHoverElements": {
+          "background": "red",
+          "color": "#fff"
+        }
+      },
+      "sidebarAndMenu": {
+        "background": "#0f172a",
+        "color": "#f8fafc"
+      },
+      "header": {
+        "background": "#020617",
+        "color": "#f8fafc",
+        "active-color": "#6366f1"
+      },
+      "chat": {
+        "background": "#0c0a09",
+        "user-message": {
+          "background": "#000",
+          "color": "#fff"
+        }
+      },
+      "confirmationModal": {
+        "confirm-button": {
+          "background": "red",
+          "color": "white"
+        }
+      }
+    },
+    "welcomeView": {
+      "title": "Titulo Principal",
+      "subtitle": "Sub Titulo Principal",
+      "description": "descripción",
+      "subtitle2": "Sub Titulo Secundario",
+      "description2": "descripción Secundaria"
+    }
+  }
+}

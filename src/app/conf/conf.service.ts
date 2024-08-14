@@ -6,6 +6,4 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ConfService {
   conf: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-
-
 }

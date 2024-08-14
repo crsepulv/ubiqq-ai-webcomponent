@@ -6,13 +6,15 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-right: 1px solid var(--borders);
+    border-right: var(--border-width) var(--border-style) var(--border-color);
     gap: 10px;
     box-sizing: border-box;
     position: relative;
     transition: all ease-in-out 400ms;
     overflow-y: scroll;
     max-height: 93svh;
+    background: var(--menu-bg);
+    color: var(--menu-color);
 
     @media screen and (max-width: 1000px) {
       padding-top: 8vh;
@@ -64,7 +66,7 @@
     .ai-file-transcriptor_result-title {
       font-size: calc(var(--font-size-base) + 2px);
       text-align: left;
-      color: var(--container-color);
+      color: var(--menu-color);
     }
 
     .ai-file-transcriptor_result-container {
@@ -112,7 +114,7 @@
           border-radius: var(--radius);
 
           .ai-download-icon {
-            fill: var(--container-color);
+            fill: var(--state-color);
           }
 
           &:hover {
@@ -135,8 +137,6 @@
       box-sizing: border-box;
       max-height: none;
       top: 0px;
-
-      background-color: var(--container-bg);
 
       &.expanded {
         width: 100%;
@@ -168,6 +168,6 @@
   }
 
   .ai-file-transcriptor_no-results {
-    color: var(--container-color);
+    color: var(--menu-color);
   }
 }
