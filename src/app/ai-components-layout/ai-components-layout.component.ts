@@ -132,10 +132,8 @@ export class AiComponentsLayoutComponent implements OnInit, OnChanges {
       '--container-color': css?.general?.color ?? '',
       '--menu-bg': css?.sidebarAndMenu?.background ?? '',
       '--menu-color': css?.sidebarAndMenu?.color ?? '',
-      '--chat-bg': css?.chat?.background ?? '',
-      '--user-message-bg': css?.chat?.['user-message']?.background ?? '',
-      '--user-message-color': css?.chat?.['user-message']?.color ?? '',
-      '--font-family': css?.general?.font?.['font-family'] ?? '',
+      '--user-message-bg': css?.chat?.['userMessage']?.background ?? '',
+      '--user-message-color': css?.chat?.['userMessage']?.color ?? '',
       '--font-size-base': css?.general?.font?.['font-size'] ?? '',
       '--font-normal': css?.general?.font?.['font-weight'] ?? '',  // Nota: Cambié 'font-wieght' a 'font-weight'
       '--font-bold': css?.general?.font?.['font-weight'] ?? '',
