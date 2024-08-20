@@ -5,11 +5,12 @@
 
     .ai-loader_loading-text {
       margin-right: 5px;
+      color: var(--container-color);
     }
   }
 
   .ai-spinner-icon {
-    fill: var(--ai-black);
+    fill: var(--container-color);
     animation: spin 1s linear infinite;
   }
 
@@ -20,14 +21,14 @@
   }
 
   .black {
-    fill: var(--ai-black);
+    fill: var(--container-color);
   }
 
   .white {
-    fill: var(--ai-white);
+    fill: var(--container-color);
   }
 
   .red {
-    fill: var(--ai-primary);
+    fill: var(--primary);
   }
 }

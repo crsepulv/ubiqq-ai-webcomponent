@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 :host {
   *,
@@ -10,30 +9,91 @@
   }
 
   .ai-layout_main-container {
-    --ai-white: #fff;
-    --ai-borders: #b1b1b1;
-    --ai-primary: #5c4985;
-    --ai-red: #ff3237;
-    --ai-black: #000000;
-    --ai-font: "Roboto", sans-serif;
-    --ai-white-opacity-9: rgba(255, 255, 255, 1);
-    --ai-gray-light: #dfdfdf;
-    --ai-light-gray: #f2f2f2;
-    --ai-gray-opacity-2: rgba(200, 200, 200, 0.2);
-    --ai-black-opacity-9: rgba(10, 10, 11, 0.9);
-    --fs: 12px;
-    --fw-normal: 500;
-    --fw-bold: 900;
-    --radius: 5px;
+      // Contenedor principal
+  --container-bg: #fff; // color de fondo
+  --container-color: #000; // color del texto
 
-    background-color: var(--ai-white);
+  // header (Barra de navegación)
+  --header-bg: #fff; // color de fondo
+  --header-color: #000; // color del texto
+  --header-active-color: #5c4985; // color del menu activo
+
+  // Bordes o separadores (General)
+  --border-color: #b1b1b1; // color de los bordes
+  --border-width: 1px;
+  --border-style: solid;
+
+  // Color principal (General)
+  --primary: #5c4985;
+
+  // Botones Destacados
+  --primary-btn-bg: #5c4985; // color de fondo
+  --primary-btn-color: #fff; // color del texto
+
+  // Botones Secundarios
+  --secondary-btn-bg: #000; // color de fondo
+  --secondary-btn-color: #fff; // color del texto
+
+  // Boton de confirmación (ventana de confirmacion para eliminar conversaciones del chat)
+  --warning-btn-bg: #f87171; // color de fondo
+  --warning-btn-color: #fff; // color del texto
+
+  // Estado de los elementos activos y seleccionables (Hover, Active)
+  // Ejemplo: conversaciones en el panel izquierdo del chat y demas modulos
+  --state-bg: #f2f2f2; // color de fondo
+  --state-color: #000; // color del texto
+
+  // Sombras del chat
+  --box-shadow: rgba(0, 0, 0, 0.4);
+
+  // radio de los bordes (border-radius) (General)
+  --radius: 5px;
+
+  // Mensajes escritos por el usuario (para destacarlos)
+  --user-message-bg: #f2f2f2; // color de fondo
+  --user-message-color: #000; // color del texto
+
+  // Panel Izquierdo y  Menu de la version mobile
+  --menu-bg: #fff; // color de fondo
+  --menu-color: #000; // color del texto
+
+  // Entradas de texto de los formularios (Inputs)
+  --input-bg: #f2f2f2; // color de fondo
+  --input-color: #000; // color del texto
+
+  // Color del texto en las alertas
+  --white: #fff;
+
+  // Fuentes
+  --font-family: "Roboto", sans-serif; // Tipo de fuente
+  --font-size-base: 12px; // Tamaño de la fuente
+  --font-normal: 500; // Peso normal de la fuente
+  --font-bold: 900; // Peso Fuerte de la fuente
+
+  
+    background: var(--container-bg);
     height: 100vh;
     overflow: hidden;
-    font-family: var(--ai-font);
-    font-size: var(--fs);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
     box-sizing: border-box;
-    border: 1px solid var(--ai-borders);
-    font-weight: var(--fw-normal);
+    border: var(--border-width) var(--border-style) var(--border-color);
+    font-weight: var(--font-normal);
+
+    // Icons
+    .ai-x-icon {
+      fill: var(--container-color);
+    }
+
+    .ai-cloud-icon {
+      fill: var(--container-color);
+      width: 80px;
+      height: 80px;
+    }
+
+    .ai-file-icon {
+      fill: var(--container-color);
+    }
 
     .ai-layout_header {
       height: 7vh;
@@ -41,10 +101,10 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 15px;
-      border-bottom: 1px solid var(--ai-borders);
+      border-bottom: var(--border-width) var(--border-style) var(--border-color);
       box-sizing: border-box;
-      color: var(--ai-black);
-      background-color: var(--ai-white);
+      color: var(--header-color);
+      background: var(--header-bg);
 
       @media screen and (max-width: 1000px) {
         padding: 0 10px;
@@ -52,7 +112,7 @@
 
       .ai-layout_header-title {
         font-weight: 500;
-        font-size: calc(var(--fs) + 2px);
+        font-size: calc(var(--font-size-base) + 2px);
         display: flex;
         flex-direction: column;
 
@@ -60,7 +120,7 @@
           display: block;
 
           @media screen and (max-width: 1000px) {
-            font-size: calc(var(--fs) - 2px);
+            font-size: calc(var(--font-size-base) - 2px);
             font-weight: normal;
           }
         }
@@ -70,14 +130,14 @@
 
           @media screen and (max-width: 1000px) {
             display: block;
-            font-size: var(--fs);
+            font-size: var(--font-size-base);
             font-weight: bolder;
           }
         }
       }
 
       .ai-layout_header-mobile-menu-close-btn {
-        background-color: var(--ai-black);
+        background-color: var(--secondary-btn-bg);
         padding: 10px;
         border-radius: 100%;
         border: none;
@@ -90,7 +150,7 @@
         right: 11px;
 
         svg {
-          fill: var(--ai-white);
+          fill: var(--secondary-btn-color);
         }
 
         @media screen and (max-width: 1000px) {
@@ -99,7 +159,7 @@
       }
 
       .ai-layout_header-mobile-menu-open-btn {
-        background-color: var(--ai-black);
+        background-color: var(--secondary-btn-bg);
         padding: 10px;
         border-radius: 100%;
         border: none;
@@ -108,7 +168,7 @@
         align-items: center;
 
         svg {
-          fill: var(--ai-white);
+          fill: var(--secondary-btn-color);
         }
 
         @media screen and (max-width: 1000px) {
@@ -132,7 +192,7 @@
           justify-content: center;
           align-items: center;
           gap: 4px;
-          background-color: var(--ai-white);
+          background-color: var(--menu-bg);
           z-index: 1000;
           transition: all ease-in 400ms;
 
@@ -150,23 +210,23 @@
           justify-content: center;
           align-items: center;
           background: transparent;
-          color: var(--black);
+          color: var(--header-color);
           border: transparent;
           border-bottom: 3px solid transparent;
           cursor: pointer;
           padding: 14px 10px;
           transition: background 200ms ease-in-out;
           font-weight: 500;
-          font-size: var(--fs);
-          font-family: var(--ai-font);
+          font-size: var(--font-size-base);
+          font-family: var(--font-family);
 
           &:hover {
-            border-bottom-color: var(--ai-borders);
+            border-bottom-color: var(--border-color);
           }
 
           &.active {
-            border-bottom-color: var(--ai-primary);
-            color: var(--ai-primary);
+            border-bottom-color: var(--header-active-color);
+            color: var(--header-active-color);
           }
         }
       }

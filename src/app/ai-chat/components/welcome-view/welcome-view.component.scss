@@ -9,21 +9,23 @@
     justify-content: center;
     align-items: flex-start;
     overflow: hidden;
+    color: var(--container-color);
 
     .ai-chat-welcome_title {
-      font-size: calc(var(--fs) + 1rem);
+      font-size: calc(var(--font-size-base) + 1rem);
+      color: var(--primary);
 
       @media screen and (max-width: 1000px) {
-        font-size: calc(var(--fs) + 0.8rem);
+        font-size: calc(var(--font-size-base) + 0.8rem);
       }
     }
 
     .ai-chat-welcome_subtitle {
-      font-size: calc(var(--fs) + 0.2rem);
+      font-size: calc(var(--font-size-base) + 0.2rem);
     }
 
     .ai-chat-welcome_text {
-      font-size: var(--fs);
+      font-size: var(--font-size-base);
     }
   }
 }

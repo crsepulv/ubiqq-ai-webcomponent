@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve ",
     "build:component": "ng build --output-hashing none --configuration production && node concat-script.js",
     "package": " cat dist/ubiqq-ai-webcomponent/{polyfills,scripts,main}.js > ./package.js",
     "build": "ng build --output-hashing=none",

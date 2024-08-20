@@ -176,16 +176,24 @@
         class="ai-chat_form-message"
       >
         <!-- Input for message -->
-        <textarea
-          class="ai-chat_text-area"
-          type="text"
-          placeholder="Escribe un mensaje de maximo 30mil caracteres"
-          id="form-input"
-          autoResize
-          formControlName="message"
-          (keydown)="handleKeyDown($event)"
-        >
-        </textarea>
+        <div class="ai-chat_input-container">
+          <textarea
+            type="text"
+            class="ai-chat_text-area"
+            placeholder="Escribe un mensaje de maximo 30mil caracteres"
+            id="form-input"
+            autoResize
+            formControlName="message"
+            (keydown)="handleKeyDown($event)"
+          >
+          </textarea>
+
+          <div class="ai-text-length-alert">
+            <span class="ai-error-message"
+              >{{ messageForm.get("message")?.value.length }}
+            </span>
+          </div>
+        </div>
 
         <div
           class="ai-error-alert"
@@ -196,11 +204,7 @@
           </span>
         </div>
 
-        <div class="ai-text-length-alert">
-          <span class="ai-error-message"
-            >{{ messageForm.get("message")?.value.length }}
-          </span>
-        </div>
+
 
         <!-- Send message btn -->
         <button

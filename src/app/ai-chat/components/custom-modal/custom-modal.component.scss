@@ -14,7 +14,7 @@
     max-width: 800px;
     z-index: 1000;
     margin: auto;
-    background-color: var(--ai-white);
+    background-color: var(--container-bg);
     border: none;
     position: absolute;
 
@@ -41,7 +41,7 @@
       overflow: hidden;
       height: 20px;
       padding: 20px 10px;
-      border-bottom: 1px solid var(--ai-borders);
+      border-bottom: var(--border-width) var(--border-style) var(--border-color);
 
       .ai-custom-modal_header-title {
         font-weight: 500;
@@ -52,11 +52,11 @@
         padding: 5px;
         border: none;
         background-color: transparent;
-        color: var(--ai-black);
+        color: var(--secondary-btn-bg);
         cursor: pointer;
 
         &:hover {
-          background-color: var(--ai-gray-opacity-2);
+          opacity: .5;
         }
       }
     }
@@ -102,7 +102,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--ai-primary);
+    background-color: var(--primary);
   }
 
   ::-webkit-scrollbar-track {

@@ -1,6 +1,12 @@
 :host {
+  .ai-pdf_border-sidebar {
+    border-right: var(--border-width) var(--border-style) var(--border-color);
+    background: var(--menu-bg);
+  }
+
   .ai-pdf-file-handler_main-container {
     display: flex;
+    color: var(--container-color);
 
     .ai-pdf-file-handler_content {
       box-sizing: border-box;
@@ -47,12 +53,13 @@
         height: min-content;
         margin: auto;
         background-color: transparent;
+        cursor: pointer;
 
         .ai-arrow-icon {
-          fill: var(--ai-borders);
+          fill: var(--border-color);
 
           &:hover {
-            fill: var(--ai-black);
+            opacity: 0.8;
           }
         }
 
@@ -61,19 +68,19 @@
           z-index: 101;
           padding: 10px;
           border-radius: 100%;
-          background-color: var(--ai-black);
+          background-color: var(--secondary-btn-bg);
           left: auto;
           right: 0;
           top: auto;
           bottom: 10vh;
           margin: 10px;
 
-          .ai-arrow-icon {
-            fill: var(--ai-white);
+          &:hover {
+            opacity: 0.9;
+          }
 
-            &:hover {
-              fill: var(--ai-borders);
-            }
+          .ai-arrow-icon {
+            fill: var(--secondary-btn-color);
           }
         }
       }
@@ -85,7 +92,7 @@
         height: 200px;
         padding: 20px;
         text-align: center;
-        border: 1px dashed var(--ai-black);
+        border: 1px dashed var(--container-color);
         position: relative;
         margin: 0 auto;
         display: flex;
@@ -95,7 +102,6 @@
         gap: 5px;
         border-top-left-radius: var(--radius);
         border-top-right-radius: var(--radius);
-
 
         @media screen and (max-width: 1000px) {
           width: 100%;
@@ -116,17 +122,18 @@
           box-sizing: border-box;
 
           .ai-pdf-file-handler_subtitle {
-            font-size: var(--fs);
-            color: var(--ai-black);
+            font-size: var(--font-size-base);
+            color: var(--container-color);
           }
         }
 
         .ai-pdf-file-handler_input-label {
-          color: var(--ai-white);
+          color: var(--secondary-btn-color);
           width: max-content;
-          background-color: var(--ai-black);
+          background-color: var(--secondary-btn-bg);
           padding: 8px 16px;
           box-sizing: border-box;
+          border-radius: var(--radius);
         }
       }
 
@@ -147,7 +154,7 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           max-width: 400px;
-          font-size: var(--fs);
+          font-size: var(--font-size-base);
 
           @media screen and (max-width: 1000px) {
             max-width: 200px;
@@ -167,7 +174,7 @@
             justify-content: space-between;
             gap: 10px;
             align-items: center;
-            border: 1px dashed var(--ai-black);
+            border: 1px dashed var(--container-color);
             margin-bottom: 1rem;
             display: flex;
             flex-grow: 1;
@@ -182,15 +189,15 @@
               box-sizing: border-box;
 
               .ai-pdf-file-handler_file-name {
-                font-size: var(--fs);
-                color: var(--ai-black);
+                font-size: var(--font-size-base);
+                color: var(--container-color);
                 box-sizing: border-box;
               }
 
               .ai-pdf-file-handler_file-size {
-                color: var(--ai-black);
+                color: var(--container-color);
                 margin: 0;
-                font-size: var(--fs);
+                font-size: var(--font-size-base);
                 margin-bottom: 0.25rem;
                 box-sizing: border-box;
               }
@@ -203,15 +210,15 @@
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          background: var(--ai-primary);
-          color: var(--ai-white);
+          background: var(--primary-btn-bg);
+          color: var(--primary-btn-color);
           border: none;
           cursor: pointer;
           padding: 10px;
           transition: opacity 200ms ease-in-out;
           font-weight: 500;
-          font-family: var(--ai-font);
-          font-size: var(--fs);
+          font-family: var(--font-family);
+          font-size: var(--font-size-base);
           box-sizing: border-box;
           border-radius: var(--radius);
 
@@ -250,7 +257,7 @@
             }
 
             .ai-pdf-file-handler_label {
-              font-size: var(--fs);
+              font-size: var(--font-size-base);
               box-sizing: border-box;
             }
 
@@ -258,9 +265,9 @@
               padding: 6px 8px;
               outline: none;
               border-radius: 0;
-              font-family: var(--ai-font);
-              font-size: var(--fs);
-              color: var(--ai-black);
+              font-family: var(--font-family);
+              font-size: var(--font-size-base);
+              color: var(--container-color);
               box-sizing: border-box;
               border-radius: var(--radius);
             }
@@ -271,7 +278,7 @@
   }
 }
 
-.ai-pdf-file-handler_form-property-name{
+.ai-pdf-file-handler_form-property-name {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -283,7 +290,7 @@
   }
 
   .ai-pdf-file-handler_label {
-    font-size: var(--fs);
+    font-size: var(--font-size-base);
     box-sizing: border-box;
   }
 
@@ -291,15 +298,14 @@
     padding: 6px 8px;
     outline: none;
     border-radius: 0;
-    font-family: var(--ai-font);
-    font-size: var(--fs);
-    color: var(--ai-black);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: var(--input-color);
     box-sizing: border-box;
-    border: 1px solid var(--ai-black);
-    background-color: var(--ai-white);
+    border: var(--border-width) var(--border-style) var(--border-color);
+    background-color: var(--input-bg);
     border-radius: var(--radius);
   }
-
 }
 
 .alert {
@@ -310,11 +316,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  color: var(--main-white);
   z-index: 0;
-  font-size: var(--fs);
+  font-size: var(--font-size-base);
   font-weight: 500;
-  color: var(--ai-white);
+  color: var(--white);
   box-sizing: border-box;
 
   @media screen and (max-width: 1000px) {
@@ -335,7 +340,7 @@
   border: none;
 
   .icon {
-    color: var(--ai-white);
+    color: var(--container-color);
   }
 }
 
