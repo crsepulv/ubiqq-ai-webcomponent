@@ -38,7 +38,7 @@ export class FilesLoaderComponent {
       .replace(/\s+/g, '')
       .replace(/[()]/g, '');
     const urlFriendlyFileName = `${fileId}_${fileNameWithoutSpaces}`;
-    console.log(urlFriendlyFileName);
+   //  console.log(urlFriendlyFileName);
     return urlFriendlyFileName;
   }
 
@@ -52,7 +52,7 @@ export class FilesLoaderComponent {
       this.fileNameToShow = files[0].name;
 
       this.selectedFile = this.generateFileName(files[0]);
-      console.log(this.selectedFile);
+      // console.log(this.selectedFile);
     }
   }
 
@@ -66,7 +66,7 @@ export class FilesLoaderComponent {
 
   deleteFile(index: number) {
     if (this.files[index].progress < 100) {
-      console.log('Upload in progress.');
+     //  console.log('Upload in progress.');
       return;
     }
     this.files.splice(index, 1);

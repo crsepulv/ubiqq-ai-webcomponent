@@ -236,7 +236,7 @@ export class AiChatComponent {
 
       this.closeDeleteModal();
     } else {
-      console.log(`Conversation with id ${id} not found`);
+      // console.log(`Conversation with id ${id} not found`);
       this.closeDeleteModal();
     }
   }
@@ -266,7 +266,7 @@ export class AiChatComponent {
         .subscribe(
           (response) => {
             const chatbotResponse = response?.message || '';
-            console.log(response);
+           // console.log(response);
 
             // Agregar la respuesta del chatbot al contexto de la conversación
             this.conversations[currentConversationId].messages.push({
@@ -309,7 +309,7 @@ export class AiChatComponent {
         .subscribe(
           (response) => {
             const chatbotResponse = response?.message || '';
-            console.log(response);
+            // console.log(response);
 
             // Agregar la respuesta del chatbot al contexto de la conversación
             this.conversations[currentConversationId].messages.push({
